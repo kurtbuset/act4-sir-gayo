@@ -23,6 +23,8 @@ userRouter.get("/users", async (req: Request, res: Response) => {
   }
 });
 
+
+
 userRouter.get("/user/:id", async (req: Request, res: Response) => {
   try {
     const user: UnitUser = await database.findOne(req.params.id);
@@ -38,6 +40,8 @@ userRouter.get("/user/:id", async (req: Request, res: Response) => {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error });
   }
 });
+
+
 
 userRouter.post("/register", async (req: Request, res: Response) => {
   try {
@@ -64,6 +68,8 @@ userRouter.post("/register", async (req: Request, res: Response) => {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error });
   }
 });
+
+
 
 userRouter.post("/login", async (req: Request, res: Response) => {
   try {
@@ -97,6 +103,8 @@ userRouter.post("/login", async (req: Request, res: Response) => {
   }
 });
 
+
+
 userRouter.put("/user/:id", async (req: Request, res: Response) => {
   try {
     const { username, email, password } = req.body;
@@ -123,6 +131,8 @@ userRouter.put("/user/:id", async (req: Request, res: Response) => {
     return res.status(500).json({ error });
   }
 });
+
+
 
 userRouter.delete("/user/:id", async (req: Request, res: Response) => {
   try {
